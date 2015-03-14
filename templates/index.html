@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link type="text/css" rel="stylesheet" href="css/style.css"/>
+	<link href='http://fonts.googleapis.com/css?family=Roboto:400,300,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+	<title>Future</title>
+</head>
+<body>
+	
+
+		<header>
+			<div class="centr_wrapper">
+				<div class="contacts">
+					<a href="tel: 499 - 340-94-71">Телефон: (499) 340-94-71</a>
+					<a href="mailto: info@future-group.ru">Email: <span class="underline">info@future-group.ru</span></a>
+				</div>			
+				<a href="#" class="logo"><img src="img/logo.png" alt="Future"></a>
+				<h1>Комментарии</h1>
+			</div>
+		</header>
+
+		<div class="main">
+			<div class="centr_wrapper">
+				<ul class="comments">
+					<?php foreach($comments as $comment): ?>
+						<li class="comment">
+							<span class="comment_name"><?= htmlspecialchars($comment->getName()) ?></span>
+							<span class="comment_date"><?= htmlspecialchars(getTimeDate($comment->getTime())) ?></span>
+							<p class="comment_text"><?= htmlspecialchars($comment->getText()) ?></p>
+						</li>
+					<?php endforeach; ?>
+				</ul>
+				<h2>Оставить комментарий</h2>
+				<form method='post' action=''>
+					
+					<label>Ваше имя
+						<input type="text" name="name" class="inputname <?php if($error=="name"):?> error  <?php endif ?> " >
+						
+					</label>
+
+					<label>Ваш комментарий
+						<textarea name="text" class="inputcomment <?php if($error=="text"):?> error  <?php endif ?>" rows="5" >
+						</textarea> 
+					</label>
+					
+					<input type="submit" name="submit" value="Отправить">
+				</form>
+			</div>
+		</div>
+
+		<footer>
+			<div class="centr_wrapper">
+				<a href="#" class="logo"><img src="img/logo.png" alt="Future"></a>
+				<div class="contacts">
+					<a href="tel: 499 - 340-94-71">Телефон: (499) 340-94-71</a><br>
+					<a href="mailto: info@future-group.ru">Email: <span class="underline">info@future-group.ru</span></a><br>
+					<span>Адрес: <span class="underline">115088 Москва, ул. 2-я Машиностроения, д. 7 стр. 1</span></span><br>
+					<span class="rights">© 2010 - 2014 Future. Все права защищены</span>
+				</div>
+			</div>
+		</footer>
+
+</body>
+</html>
